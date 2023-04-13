@@ -1,10 +1,10 @@
 <%- include('partials/header') %>
 
+
 <div>
-    <li>test</li>
-    <li>test</li>
-    <li>test</li>
-    <li>test</li>
+    <% for(const category of categories) {%>
+        <li><%= category.category_name %></li>
+    <%}%>
 </div>
 
 <%- include('partials/footer') %>

@@ -1,5 +1,6 @@
 // npm import
-import express from "express"; 
+import express from "express";
+import cors from 'cors'; 
 
 // import .env
 import {} from 'dotenv/config';
@@ -15,6 +16,17 @@ const app = express();
 /** réglages du moteur de vues */
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
+
+
+app.use( express.urlencoded({extended: true}) );
+
+app.use(express.json());
+
+app.use(cors({
+    origin: '*',
+    methods: 'GET,POST,PATCH,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type'
+}));
 
 // add route
 // app.get('/', (request, response) => {
