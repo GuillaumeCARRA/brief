@@ -28,10 +28,6 @@ app.use(cors({
     allowedHeaders: 'Content-Type'
 }));
 
-// add route
-// app.get('/', (request, response) => {
-//     response.send('Hello World');
-//   });
 
 app.use(homePageRouter);
 app.use(categoryRouter);
