@@ -1,7 +1,8 @@
 import { Sequelize } from "sequelize";
+import {} from 'dotenv/config';
 
 // we create an instance of the class by configuring it with our DATABASE_URL variable
-const sequelize = new Sequelize(
+const seq = new Sequelize(
     process.env.DATABASE_URL, {
         define: {
             
@@ -16,4 +17,4 @@ const sequelize = new Sequelize(
     }
 ); 
 
-module.exports = sequelize; 
+export default seq; 

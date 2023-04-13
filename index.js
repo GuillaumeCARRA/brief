@@ -5,7 +5,9 @@ import express from "express";
 import {} from 'dotenv/config';
 
 //import routes
-import router from './app/router'; 
+import homePageRouter from './app/router/homePageRoute.js'; 
+import categoryRouter from './app/router/categoryRouter.js'; 
+
 
 // create express server 
 const app = express(); 
@@ -19,7 +21,8 @@ app.set('views', './app/views');
 //     response.send('Hello World');
 //   });
 
-app.use(router);
+app.use(homePageRouter);
+app.use(categoryRouter);
 
 
 // server launch
