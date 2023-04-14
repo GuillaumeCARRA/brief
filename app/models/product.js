@@ -2,6 +2,8 @@ import sequelize from '../db/client.js';
 
 import {DataTypes, Model} from "sequelize"; 
 
+import Category from './category.js'
+
 class Product extends Model{}; 
 
 // we use the static init method inherited from Model to configure our model
@@ -22,6 +24,12 @@ Product.init (
         tableName: 'product'
     }
 );
+
+Product.belongsTo(Category, {
+    foreignKey: 'category_id', 
+    as: 'category'
+});
+
 
 // don't forget to export 
 export default Product; 

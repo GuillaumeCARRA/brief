@@ -7,15 +7,15 @@ import Category from "./category.js";
 //For the table that holds n, we use the hasMany method
 //1st argument: the model to link
 //2nd argument: configuration object
-Product.hasMany(Category, {
+Product.belongsTo(Category, {
     foreignKey: 'category_id', 
-    as: 'categories'
+    as: 'category'
 });
 
 
 //relationship 1.1
 //We use the belongsTo method on the table that holds the foreign key
-Category.belongsTo(Product, {
+Category.hasMany(Product, {
     foreignKey: 'category_id', 
     as: 'products'
 });
