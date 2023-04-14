@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+
+
+<div>
+    <% for(const product of products) {%>
+        <li><%= product.product_name %></li>
+        <li><%= product.product_description %></li>
+        <li><%= product.product_price %></li>
+    <%}%>
+</div>
+
+<%- include('partials/footer') %>

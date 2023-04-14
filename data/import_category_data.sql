@@ -9,4 +9,9 @@ VALUES (1, 'soin du corps'),
 (3, 'maquillage'),
 (4, 'beauté main');
 
+INSERT INTO "product" ("product_name", "product_description", "product_price", "category_id")
+VALUES ('crème pour le corps', 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lobortis nunc sed suscipit eleifend.', 14, 1),
+('crème pour le visage', 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lobortis nunc sed suscipit eleifend.', 9, 2),
+('fond de teint', 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lobortis nunc sed suscipit eleifend.', 15, 3),
+('crème main', 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lobortis nunc sed suscipit eleifend.', 7, 4);
 COMMIT;
