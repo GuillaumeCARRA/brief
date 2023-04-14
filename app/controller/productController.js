@@ -1,4 +1,4 @@
-import Product  from '../models/product'; 
+import Product  from '../models/product.js'; 
 
 
 const getAllProducts = async (req, res) => {
@@ -10,3 +10,6 @@ const getAllProducts = async (req, res) => {
         console.log('erreur', error);
     }
 }
+
+
+export default {getAllProducts}

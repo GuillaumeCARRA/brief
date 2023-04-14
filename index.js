@@ -8,6 +8,7 @@ import {} from 'dotenv/config';
 //import routes
 import homePageRouter from './app/router/homePageRoute.js'; 
 import categoryRouter from './app/router/categoryRouter.js'; 
+import productRouter from './app/router/productRouter.js';
 
 
 // create express server 
@@ -31,7 +32,7 @@ app.use(cors({
 
 app.use(homePageRouter);
 app.use(categoryRouter);
-
+app.use(productRouter);
 
 // server launch
 const PORT = process.env.PORT || 4000;
