@@ -1,9 +1,5 @@
 import Category from '../models/category.js'; 
 
-// const showCategory = (req, res) => {
-//     res.render('category', {title: 'categorie'});
-// };
-
 const getAllCategories = async (req, res) => {
     try {
         const categories = await Category.findAll();
@@ -48,4 +44,47 @@ const createCategory = async (req, res) => {
 }
 
 
-export default {getAllCategories, getOneCategory, createCategory}; 
+const updateCategory = async (req, res, next) => {
+    try {
+        const categoryId = req.params.id;
+        const category = await Category.findByPk(categoryId); 
+
+        if(category) {
+            await category.update(req.body); 
+            res.status(201).json(category); 
+        } else {
+            next()
+        }  
+    } catch (error) {
+        res.status(500).send(error);
+        console.log('erreur', error);
+    }
+    
+}
+
+const deleteCategory = async (req, res) => {
+   const categoryId = req.params.id; 
+
+   try {
+     const deletedCategory = await Category.findOne({
+        where: {
+            id: categoryId
+        }
+     });
+
+     if(!deletedCategory){
+        res.status(404).json("Aucunes catégories"); 
+     } else {
+        await deletedCategory.destroy();
+        res.status(201).json(deletedCategory); 
+     }
+
+   } catch (error) {
+        res.status(500).send(error);
+        console.log('erreur', error);
+   }
+}
+
+
+
+export default {getAllCategories, getOneCategory, createCategory, updateCategory, deleteCategory}; 
